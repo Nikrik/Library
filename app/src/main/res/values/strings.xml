@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Library</string>
+
+    <string name="item1">Добавить</string>
+    <string name="item2">Поиск</string>
+    <string name="title_activity_add">AddActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="saved">Сохранено</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="autor">Автор</string>
+    <string name="year">Год издания</string>
+    <string name="name">Название</string>
+    <string name="pages">Кол-во страниц</string>
+    <string name="publisher">Издательство</string>
+    <string name="number">Номер книги</string>
+    <string name="save">Сохранить</string>
+    <string name="enter">Введите</string>
+    <string name="canceled">Отменено</string>
+    <string name="list_empty">Пусто</string>
+    <string name="date">Дата</string>
+    <string name="title">Заголовок книги</string>
+    <string name="end_search">Закончить поиск</string>
+    <string name="Enter_year">Впишите год</string>
+</resources>
