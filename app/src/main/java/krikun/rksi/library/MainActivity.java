@@ -152,6 +152,12 @@ public class MainActivity extends AppCompatActivity
                         {
                             public void onClick(DialogInterface dialog,int id)
                             {
+                                if (userInput.getText().toString().isEmpty())
+                                {
+                                    Toast.makeText(MainActivity.this,getString(R.string.enter)+" "+userInput.getHint(),Toast.LENGTH_LONG).show();
+                                    alertDialog.show();
+                                    return;
+                                }
                                 year=Integer.parseInt(userInput.getText().toString());
                                 for (int i = 0;i < search.size(); i++)
                                 {
