@@ -33,11 +33,17 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity
 {
 
-    int mPosition;
-    MenuItem addmenu;
-    MenuItem searchmenu;
-    MenuItem exitmenu;
-    private boolean instans;
+    int mPosition;//переменная позиции при редактировании книги
+    MenuItem addmenu;//переменная меню добавления
+    MenuItem searchmenu;//переменная меню поиска
+    MenuItem exitmenu;//переменная меню выхода из поиска
+    AlertDialog alertDialog;// переменная диалогового окна с выборам года
+    private boolean instans;//переменная, определяющая нужно ли обновлять весь список книг
+    ArrayList<Book> search=new ArrayList<>();//список книг при поиске
+    ArrayList<Book> books = new ArrayList<>();//список книг без поиска
+    private RecyclerView mBookRecyclerView;//RecyclerView для вывода на экран
+    private BookAdapter mAdapter;//переменная- буфер
+    int year;//год поиска
 
     private class BookHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
@@ -121,17 +127,14 @@ public class MainActivity extends AppCompatActivity
             mBooks = books;
         }
     }
-    ArrayList<Book> search=new ArrayList<>();
-    ArrayList<Book> books = new ArrayList<>();
-    RecyclerView recyclerView;
-    AlertDialog alertDialog;
+
+
 
 
     @SuppressLint("CutPasteId")
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-        recyclerView=findViewById(R.id.book_recycler_view);
         super.onCreate(savedInstanceState);
 
 
@@ -161,12 +164,11 @@ public class MainActivity extends AppCompatActivity
                                 year=Integer.parseInt(userInput.getText().toString());
                                 for (int i = 0;i < search.size(); i++)
                                 {
-                                    if (search.get(i).year>year)//TODO Доделать ввод года для пользователя
+                                    if (search.get(i).year>year)
                                     {
                                         books.add(search.get(i));
                                     }
                                 }
-                                //5000 200 6000 300 9000
                                 instans=true;
                                 updateUI();
                                 addmenu.setVisible(false);
@@ -184,7 +186,6 @@ public class MainActivity extends AppCompatActivity
         alertDialog=mDialogBuilder.create();
 
     }
-    int year;
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId())
@@ -212,10 +213,6 @@ public class MainActivity extends AppCompatActivity
         }
         return super.onOptionsItemSelected(item);
     }
-
-
-    private RecyclerView mBookRecyclerView;
-    private BookAdapter mAdapter;
 
     private void updateUI()
     {

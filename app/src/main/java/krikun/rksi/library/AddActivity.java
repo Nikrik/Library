@@ -66,7 +66,7 @@ public class AddActivity extends AppCompatActivity {
                 intent.putExtra("year",Integer.parseInt(text[3].getText().toString()));
                 intent.putExtra("publisher",text[4].getText().toString());
                 intent.putExtra("pages",Integer.parseInt(text[5].getText().toString()));
-                Toast.makeText(this,R.string.saved,Toast.LENGTH_SHORT).show();// TODO Сохранить тоаст
+                Toast.makeText(this,R.string.saved,Toast.LENGTH_SHORT).show();
                 setResult(RESULT_OK,intent);
                 finish();
                 break;
